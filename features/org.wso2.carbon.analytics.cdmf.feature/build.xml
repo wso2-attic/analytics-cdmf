@@ -21,8 +21,8 @@
     <property name="project-name" value="${ant.project.name}"/>
     <property name="res-dir" value="src/main/resources"/>
     <property name="target-dir" value="target"/>
-    <property name="ANALYTICS_EMM_DIR" value="src/main/capp"/>
-    <property name="ANALYTICS_EMM_CAPP" value="org_wso2_carbon_analytics_emm-1.0.0"/>
+    <property name="ANALYTICS_CDMF_DIR" value="src/main/capp"/>
+    <property name="ANALYTICS_CDMF_CAPP" value="org_wso2_carbon_analytics_cdmf-1.0.0"/>
 
     <target name="clean">
         <delete dir="${target-dir}"/>
@@ -33,8 +33,8 @@
     </target>
 
     <target name="zip" depends="clean,pre-configure">
-        <zip destfile="${res-dir}/${ANALYTICS_EMM_CAPP}.car">
-          <zipfileset dir="${ANALYTICS_EMM_DIR}"/>
+        <zip destfile="${res-dir}/${ANALYTICS_CDMF_CAPP}.car">
+          <zipfileset dir="${ANALYTICS_CDMF_DIR}"/>
         </zip>
     </target>
 </project>
