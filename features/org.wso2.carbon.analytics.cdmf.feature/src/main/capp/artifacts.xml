@@ -19,14 +19,14 @@
 <artifacts>
     <artifact name="org.wso2.carbon.analytics.esb" version="1.0.0" type="carbon/application">
         <!-- Gadgets -->
-        <dependency artifact="GadgetDeviceGrouping" version="1.0.0" include="true" serverRole="EMMPlatform"/>
-        <dependency artifact="GadgetDevicesTable" version="1.0.0" include="true" serverRole="EMMPlatform"/>
-        <dependency artifact="GadgetFilteredBy" version="1.0.0" include="true" serverRole="EMMPlatform"/>
-        <dependency artifact="GadgetNonCompiantFeatures" version="1.0.0" include="true" serverRole="EMMPlatform"/>
-        <dependency artifact="GadgetOverview" version="1.0.0" include="true" serverRole="EMMPlatform"/>
-        <dependency artifact="GadgetVulnerabilities" version="1.0.0" include="true" serverRole="EMMPlatform"/>
-        <dependency artifact="GadgetCommons" version="1.0.0" include="true" serverRole="EMMPlatform"/>
+        <dependency artifact="GadgetDeviceGrouping" version="1.0.0" include="true" serverRole="CDMFPlatform"/>
+        <dependency artifact="GadgetDevicesTable" version="1.0.0" include="true" serverRole="CDMFPlatform"/>
+        <dependency artifact="GadgetFilteredBy" version="1.0.0" include="true" serverRole="CDMFPlatform"/>
+        <dependency artifact="GadgetNonCompiantFeatures" version="1.0.0" include="true" serverRole="CDMFPlatform"/>
+        <dependency artifact="GadgetOverview" version="1.0.0" include="true" serverRole="CDMFPlatform"/>
+        <dependency artifact="GadgetVulnerabilities" version="1.0.0" include="true" serverRole="CDMFPlatform"/>
+        <dependency artifact="GadgetCommons" version="1.0.0" include="true" serverRole="CDMFPlatform"/>
         <!-- Dashboard Definition -->
-        <dependency artifact="Dashboard" version="1.0.0" include="true" serverRole="EMMPlatform"/>
+        <dependency artifact="Dashboard" version="1.0.0" include="true" serverRole="CDMFPlatform"/>
     </artifact>
 </artifacts>
