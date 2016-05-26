@@ -37,7 +37,7 @@ dg.filterUrl="";
 dg.API_CHANGING_PARAMETER = "non-compliant-feature-code";
 
 dg.meta = {
-    "names": ["context", "group", "name", "count"],
+    "names": ["context", "group", "name", "percentage"],
     "types": ["ordinal", "ordinal", "ordinal", "linear"]
 };
 dg.config = {
@@ -48,7 +48,7 @@ dg.config = {
     charts: [
         {
             type: "stack",
-            y: "count",
+            y: "percentage",
             color: "name",
             xTitle: "",
             yTitle: "",

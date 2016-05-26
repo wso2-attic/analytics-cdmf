@@ -35,7 +35,7 @@ ncp.globalPage = 1;
 ncp.filterContextFromURL = "";
 
 ncp.meta = {
-    "names": ["id", "name", "count"],
+    "names": ["id", "name", "Device count"],
     "types": ["ordinal", "ordinal", "linear"]
 };
 ncp.config = {
@@ -44,7 +44,7 @@ ncp.config = {
     charts: [
         {
             type: "bar",
-            y: "count",
+            y: "Device count",
             color: "name",
             xTitle: "",
             yTitle: "",

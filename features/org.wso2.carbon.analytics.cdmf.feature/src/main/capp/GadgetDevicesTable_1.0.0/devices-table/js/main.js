@@ -46,7 +46,7 @@ dt.config = {
     charts: [{
         type: "table",
         columns: ["device-id", "connectivity-details", "platform", "ownership", "actions"],
-        columnTitles: ["Id", "connectivity-details", "Platform", "Ownership", "Actions"]
+        columnTitles: ["Device id", "Connectivity status", "Platform", "Ownership", "Actions"]
     }],
     width: $(window).width()* 0.95,
     height: $(window).width() * 0.65 > $(window).height() ? $(window).height() : $(window).width() * 0.65,
@@ -89,6 +89,7 @@ dt.initialize = function () {
 };
 
 dt.loadFiltersFromURL = function () {
+    console.log("TABLE");
     dt.deviceManageUrl = gadgetConfig.deviceManageUrl;
     var urlParams = getURLParams();
     for (var filter in urlParams) {
@@ -176,7 +177,7 @@ dt.fetch = function (cb) {
                         console.log(managingUrl);
                         dt.data.push(
                             [
-                                Mustache.to_html(dt.cell_templates['device-id'], {'device-id': data[i]["deviceId"]}),
+                                Mustache.to_html(dt.cell_templates['device-id'], {'device-id': data[i]["deviceIdentification"]}),
                                 Mustache.to_html(dt.cell_templates['connectivity-details'], {'connectivity-details': data[i]["connectivityStatus"]}),
                                 Mustache.to_html(dt.cell_templates['platform'], {'platform': data[i]["platform"]}),
                                 Mustache.to_html(dt.cell_templates['ownership'], {'ownership': data[i]["ownershipType"]}),

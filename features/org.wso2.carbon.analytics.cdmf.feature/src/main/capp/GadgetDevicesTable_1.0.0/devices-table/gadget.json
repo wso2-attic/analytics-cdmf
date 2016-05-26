@@ -1,6 +1,6 @@
 {
   "id": "devices-table",
-  "title": "Devices Table",
+  "title": "Device Listing",
   "type": "gadget",
   "thumbnail": "gadget/devices-table/img/thumbnail.png",
   "data": {

@@ -219,7 +219,7 @@ fb.updateBreadcrumbs = function (data, force_update) {
             }
         }
         if ($('#breadcrumbs').html()) {
-            $('#filterMsg').html("Filtered by : ");
+            $('#filterMsg').html("Devices are filtered by : ");
         } else {
             $('#filterMsg').html("Click on charts to filter devices.");
         }
