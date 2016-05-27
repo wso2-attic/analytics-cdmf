@@ -17,13 +17,10 @@
   ~ under the License.
   -->
 <artifacts>
-    <artifact name="org.wso2.carbon.analytics.cdmf" version="1.0.0" type="carbon/application">
+    <artifact name="org.wso2.carbon.analytics.emm" version="1.0.0" type="carbon/application">
         <!-- Gadgets -->
-        <dependency artifact="GadgetDeviceGrouping" version="1.0.0" include="true" serverRole="CDMFPlatform"/>
-        <dependency artifact="GadgetDevicesTable" version="1.0.0" include="true" serverRole="CDMFPlatform"/>
-        <dependency artifact="GadgetFilteredBy" version="1.0.0" include="true" serverRole="CDMFPlatform"/>
-        <dependency artifact="GadgetNonCompiantFeatures" version="1.0.0" include="true" serverRole="CDMFPlatform"/>
-        <dependency artifact="GadgetUnsecuredDevices" version="1.0.0" include="true" serverRole="CDMFPlatform"/>
-        <dependency artifact="GadgetCommons" version="1.0.0" include="true" serverRole="CDMFPlatform"/>
+        <dependency artifact="GadgetOverview" version="1.0.0" include="true" serverRole="EMMPlatform"/>
+        <!-- Dashboard Definition -->
+        <dependency artifact="Dashboard" version="1.0.0" include="true" serverRole="EMMPlatform"/>
     </artifact>
 </artifacts>
