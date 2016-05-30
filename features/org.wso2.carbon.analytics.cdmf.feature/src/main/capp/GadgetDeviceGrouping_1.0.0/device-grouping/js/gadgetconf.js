@@ -20,7 +20,7 @@ var gadgetConfig = {
     "id": "device-groupings",
     "polling_interval": 30000,
     "pub_sub_channel": "filter",
-    "featureSource": "https://localhost:9443/mdm-admin/dashboard/feature-non-compliant-device-counts-by-groups",
-    "defaultSource": "https://localhost:9443/mdm-admin/dashboard/device-counts-by-groups",
+    "featureSource": "https://localhost:9443/devicemgt_admin/dashboard/feature-non-compliant-device-counts-by-groups",
+    "defaultSource": "https://localhost:9443/devicemgt_admin/dashboard/device-counts-by-groups",
     "domain": "carbon.super"
 };

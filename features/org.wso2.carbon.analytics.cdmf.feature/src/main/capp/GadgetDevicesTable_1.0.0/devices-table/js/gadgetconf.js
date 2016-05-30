@@ -20,8 +20,8 @@ var gadgetConfig = {
     "id": "devices-table",
     "polling_interval": 30000,
     "pub_sub_channel": "filter",
-    "featureSource": "https://localhost:9443/mdm-admin/dashboard/feature-non-compliant-devices-with-details",
-    "defaultSource": "https://localhost:9443/mdm-admin/dashboard/devices-with-details",
+    "featureSource": "https://localhost:9443/devicemgt_admin/dashboard/feature-non-compliant-devices-with-details",
+    "defaultSource": "https://localhost:9443/devicemgt_admin/dashboard/devices-with-details",
     "domain": "carbon.super",
     "deviceManageUrl": "https://localhost:9443/emm/devices/view?type=$type$&id=$id$"
 };

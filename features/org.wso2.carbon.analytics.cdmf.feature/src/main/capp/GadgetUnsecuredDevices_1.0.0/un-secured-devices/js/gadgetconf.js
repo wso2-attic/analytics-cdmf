@@ -20,6 +20,6 @@ var gadgetConfig = {
     "id": "potential-vulnerabilities",
     "polling_interval": 30000,
     "pub_sub_channel": "filter",
-    "source": "https://localhost:9443/mdm-admin/dashboard/device-counts-by-potential-vulnerabilities",
+    "source": "https://localhost:9443/devicemgt_admin/dashboard/device-counts-by-potential-vulnerabilities",
     "domain": "carbon.super"
 };
