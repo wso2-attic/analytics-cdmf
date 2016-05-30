@@ -20,6 +20,6 @@ var gadgetConfig = {
     "id": "non-compliant-features",
     "polling_interval": 30000,
     "pub_sub_channel": "filter",
-    "source": "https://localhost:9443/mdm-admin/dashboard/non-compliant-device-counts-by-features",
+    "source": "https://localhost:9443/devicemgt_admin/dashboard/non-compliant-device-counts-by-features",
     "domain": "carbon.super"
 };
