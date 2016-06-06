@@ -55,10 +55,12 @@ function setDateTime(from, to) {
 
     from += tzOffset;
     to += tzOffset;
+    console.log('fromss'+parseInt(from / 1000));
 
     // the relevant import units needs to implement this.
 
-   drawGraph(parseInt(from / 1000), parseInt(to / 1000));
+    drawGraph_connectedcup(parseInt(from / 1000), parseInt(to / 1000));
+
 
 
 }

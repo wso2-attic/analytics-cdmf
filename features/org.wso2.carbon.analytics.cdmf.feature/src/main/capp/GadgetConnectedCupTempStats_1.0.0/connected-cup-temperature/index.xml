@@ -32,8 +32,8 @@
         <body>
         <div class="nano">
          <div class="nano-content">
-<span id="details" data-devicename="sample-name" data-deviceid="sample-id"></span>
-<div id="device-chart" data-backend-api-url ="https://localhost:9443/connectedcup/stats/">
+<span id="connectedcup-details" data-devices="" data-devicename="sample-name" data-deviceid="sample-id"></span>
+<div id="connectedcup-div-chart" data-backend-api-url ="https://localhost:9443/connectedcup/stats/">
     <div class="chartWrapper" id="chartWrapper-temperature">
         <div id="y_axis-temperature" class="custom_y_axis"></div>
         <div class="legend_container">
@@ -46,8 +46,6 @@
     </div>
 
 </div>
-</div>
-
        <script src="/portal/libs/jquery_1.11.0/jquery-1.11.3.min.js" type="text/javascript"></script>
             <script src="js/d3.min.js" type="text/javascript"></script>
             <script src="/portal/libs/bootstrap_3.3.5/js/bootstrap.min.js" type="text/javascript"></script>
@@ -55,7 +53,7 @@
             <script src="js/moment.min.js" type="text/javascript"></script>
             <script src="js/jquery.nanoscroller.js" type="text/javascript"></script>
              <script src="js/graph_util.js" type="text/javascript"></script>
-            <script src="js/devicetype-graph.js" type="text/javascript"></script>
+             <script src="js/connectedcup.js" type="text/javascript"></script>
 </div></div>
         </body>
         </html>

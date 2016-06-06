@@ -30,7 +30,7 @@ $(function() {
     if(timeUnit != null) {
         $("#btnLast" + timeUnit).addClass("active");
     } else {
-        $("#btnLastMonth").addClass("active");
+        $("#btnLastHour").addClass("active");
     }
 
     cb(moment().subtract(29, 'days'), moment());

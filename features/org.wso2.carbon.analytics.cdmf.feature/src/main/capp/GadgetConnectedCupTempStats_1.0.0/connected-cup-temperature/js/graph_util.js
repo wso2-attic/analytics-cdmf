@@ -55,7 +55,7 @@ function setDateTime(from, to) {
 
     // the relevant import units needs to implement this.
 
-   drawGraph(parseInt(from / 1000), parseInt(to / 1000));
+    drawGraph_connectedcup(parseInt(from / 1000), parseInt(to / 1000));
 
 }
 
