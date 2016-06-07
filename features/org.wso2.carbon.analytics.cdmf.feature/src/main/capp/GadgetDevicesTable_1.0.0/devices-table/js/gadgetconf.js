@@ -23,5 +23,5 @@ var gadgetConfig = {
     "featureSource": "https://localhost:9443/devicemgt_admin/dashboard/feature-non-compliant-devices-with-details",
     "defaultSource": "https://localhost:9443/devicemgt_admin/dashboard/devices-with-details",
     "domain": "carbon.super",
-    "deviceManageUrl": "https://localhost:9443/emm/devices/view?type=$type$&id=$id$"
+    "deviceManageUrl": "https://localhost:9443/devicemgt/device/$type$?id=$id$"
 };
