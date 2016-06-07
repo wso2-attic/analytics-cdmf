@@ -144,7 +144,13 @@ function drawGraph_connectedcup(from, to) {
             },
 
             function(error){
-                $("#chart-temperature").html("<br/>No data available...");
+                $("#y_axis-temperature").html("");
+                $("#smoother-temperature").html("");
+                $("#legend-temperature").html("");
+                $("#chart-temperature").html("");
+                $("#x_axis-temperature").html("");
+                $("#slider-temperature").html("");
+                $("#chart-temperature").html("<br/><h3>No data available...</h3>");
             }
         );
 

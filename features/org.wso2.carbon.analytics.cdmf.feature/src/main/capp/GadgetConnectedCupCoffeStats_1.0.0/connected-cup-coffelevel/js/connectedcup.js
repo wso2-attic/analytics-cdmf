@@ -61,7 +61,7 @@ function drawGraph_connectedcup(from, to) {
                         x: parseInt(new Date().getTime() / 1000),
                         y: 0
                     }],
-                    'name': 'ttt'
+                    'name': devices[i].name
                 });
         }
     } else {
@@ -145,7 +145,13 @@ function drawGraph_connectedcup(from, to) {
             },
 
             function(error){
-                $("#chart-coffeelevel").html("<br/>No data available...");
+                $("#y_axis-coffeelevel").html("");
+                $("#smoother-coffeelevel").html("");
+                $("#legend-coffeelevel").html("");
+                $("#chart-coffeelevel").html("");
+                $("#x_axis-coffeelevel").html("");
+                $("#slider-coffeelevel").html("");
+                $("#chart-coffeelevel").html("<br/><h3>No data available..</h3>.");
             }
         );
 
