@@ -25,5 +25,10 @@
         <dependency artifact="GadgetNonCompiantFeatures" version="1.0.0" include="true" serverRole="CDMFPlatform"/>
         <dependency artifact="GadgetUnsecuredDevices" version="1.0.0" include="true" serverRole="CDMFPlatform"/>
         <dependency artifact="GadgetCommons" version="1.0.0" include="true" serverRole="CDMFPlatform"/>
+        <dependency artifact="GadgetConnectedCupCoffeStats" version="1.0.0" include="true" serverRole="CDMFPlatform"/>
+        <dependency artifact="GadgetConnectedCupTempStats" version="1.0.0" include="true" serverRole="CDMFPlatform"/>
+        <dependency artifact="GadgetDateTimePicker" version="1.0.0" include="true" serverRole="CDMFPlatform"/>
+        <dependency artifact="DashboardConnectedCupAnalytics" version="1.0.0" include="true" serverRole="CDMFPlatform"/>
+
     </artifact>
 </artifacts>
