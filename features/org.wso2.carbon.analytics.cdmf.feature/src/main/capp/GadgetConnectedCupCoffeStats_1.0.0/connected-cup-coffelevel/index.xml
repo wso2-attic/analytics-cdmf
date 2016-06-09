@@ -51,7 +51,7 @@
                         <script src="js/moment.min.js" type="text/javascript"></script>
                         <script src="js/jquery.nanoscroller.js" type="text/javascript"></script>
                         <script src="js/graph_util.js" type="text/javascript"></script>
-                        <script src="js/domain.js" type="text/javascript"></script>
+                        <script src="js/gadgetConfig.js" type="text/javascript"></script>
                         <script src="js/connectedcup.js" type="text/javascript"></script>
 
                      </div>
