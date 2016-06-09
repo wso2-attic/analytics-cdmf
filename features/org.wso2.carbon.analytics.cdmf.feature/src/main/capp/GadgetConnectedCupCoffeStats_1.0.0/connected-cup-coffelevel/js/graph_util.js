@@ -34,8 +34,7 @@ $(document).ready(function () {
         scroll: "top"
     });
 
-    $('.nano-pane').attr('style',' ');
-
+    $('.nano-pane').attr('style', ' ');
 
 
     setDateTime(currentDay.getTime() - 3600000, currentDay.getTime());
@@ -55,12 +54,11 @@ function setDateTime(from, to) {
 
     from += tzOffset;
     to += tzOffset;
-    console.log('fromss'+parseInt(from / 1000));
+    console.log('fromss' + parseInt(from / 1000));
 
     // the relevant import units needs to implement this.
 
     drawGraph_connectedcup(parseInt(from / 1000), parseInt(to / 1000));
-
 
 
 }
@@ -71,6 +69,6 @@ function convertDate(date) {
     var hour = date.getHours();
     var minute = date.getMinutes();
     return date.getFullYear() + '-' + (('' + month).length < 2 ? '0' : '') + month + '-' +
-           (('' + day).length < 2 ? '0' : '') + day + " " + (('' + hour).length < 2 ? '0' : '') +
-           hour + ":" + (('' + minute).length < 2 ? '0' : '') + minute;
+        (('' + day).length < 2 ? '0' : '') + day + " " + (('' + hour).length < 2 ? '0' : '') +
+        hour + ":" + (('' + minute).length < 2 ? '0' : '') + minute;
 }

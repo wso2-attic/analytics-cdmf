@@ -20,7 +20,7 @@ var palette = new Rickshaw.Color.Palette({scheme: "classic9"});
 
 function drawGraph_connectedcup(from, to) {
 
-    console.log('from'+from+'to'+to);
+    console.log('from' + from + 'to' + to);
 
     $("#y_axis-temperature").html("");
     $("#smoother-temperature").html("");
@@ -130,29 +130,28 @@ function drawGraph_connectedcup(from, to) {
     });
 
 
-
     var deviceIndex = 0;
 
 
-        var deviceid = $("#connectedcup-details").data("deviceid");
-        var backendApiUrl = $("#connectedcup-div-chart").data("backend-api-url") + deviceid + "/sensors/temperature"
-            + "?from=" + from + "&to=" + to;
+    var deviceid = $("#connectedcup-details").data("deviceid");
+    var backendApiUrl = $("#connectedcup-div-chart").data("backend-api-url") + deviceid + "/sensors/temperature"
+        + "?from=" + from + "&to=" + to;
 
-        wso2.gadgets.HttpRequest.get(backendApiUrl,
-            function(data){
-                drawTemperatureLineGraph(data);
-            },
+    wso2.gadgets.HttpRequest.get(backendApiUrl,
+        function (data) {
+            drawTemperatureLineGraph(data);
+        },
 
-            function(error){
-                $("#y_axis-temperature").html("");
-                $("#smoother-temperature").html("");
-                $("#legend-temperature").html("");
-                $("#chart-temperature").html("");
-                $("#x_axis-temperature").html("");
-                $("#slider-temperature").html("");
-                $("#chart-temperature").html("<br/><h3>No data available...</h3>");
-            }
-        );
+        function (error) {
+            $("#y_axis-temperature").html("");
+            $("#smoother-temperature").html("");
+            $("#legend-temperature").html("");
+            $("#chart-temperature").html("");
+            $("#x_axis-temperature").html("");
+            $("#slider-temperature").html("");
+            $("#chart-temperature").html("<br/><h3>No data available...</h3>");
+        }
+    );
 
     function drawTemperatureLineGraph(data) {
         if (data.length === 0 || data.length === undefined) {
@@ -213,11 +212,20 @@ if (urlQueryParams != null) {
 
 
 /**
+ * get back-end api based on property
+ */
+function getBackendApiurlfromProperty(property) {
+
+    $('#connectedcup-div-chart').attr('data-backend-api-url', property.name[0].url + property.name[0].port + "/connectedcup/stats/");
+
+}
+
+/**
  * Intergadget communication with Date range gadget
  */
 
-gadgets.HubSettings.onConnect = function() {
-    gadgets.Hub.subscribe('range-selected', function(topic, data, subscriberData) {
+gadgets.HubSettings.onConnect = function () {
+    gadgets.Hub.subscribe('range-selected', function (topic, data, subscriberData) {
 
         var timefrom = data.timeFrom,
             timeto = data.timeTo;
@@ -225,6 +233,6 @@ gadgets.HubSettings.onConnect = function() {
         var tzOffset = new Date().getTimezoneOffset() * 60 / 1000;
         timefrom += tzOffset;
         timeto += tzOffset;
-        drawGraph_connectedcup(parseInt(timefrom / 1000) , parseInt(timeto / 1000));
+        drawGraph_connectedcup(parseInt(timefrom / 1000), parseInt(timeto / 1000));
     });
 };
