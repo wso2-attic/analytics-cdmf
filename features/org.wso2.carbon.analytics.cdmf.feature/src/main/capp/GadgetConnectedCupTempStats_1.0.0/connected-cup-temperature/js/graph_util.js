@@ -34,7 +34,7 @@ $(document).ready(function () {
         scroll: "top"
     });
 
-    $('.nano-pane').attr('style',' ');
+    $('.nano-pane').attr('style', ' ');
 
     setDateTime(currentDay.getTime() - 3600000, currentDay.getTime());
 
@@ -65,6 +65,6 @@ function convertDate(date) {
     var hour = date.getHours();
     var minute = date.getMinutes();
     return date.getFullYear() + '-' + (('' + month).length < 2 ? '0' : '') + month + '-' +
-           (('' + day).length < 2 ? '0' : '') + day + " " + (('' + hour).length < 2 ? '0' : '') +
-           hour + ":" + (('' + minute).length < 2 ? '0' : '') + minute;
+        (('' + day).length < 2 ? '0' : '') + day + " " + (('' + hour).length < 2 ? '0' : '') +
+        hour + ":" + (('' + minute).length < 2 ? '0' : '') + minute;
 }
