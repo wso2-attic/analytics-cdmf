@@ -27,5 +27,6 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>analytics-cdmf-components</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 </project>

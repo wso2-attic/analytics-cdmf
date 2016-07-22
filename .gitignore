@@ -23,3 +23,5 @@ target
 .DS_Store
 *.pyc
 .sonar
+features/org.wso2.carbon.analytics.cdmf.feature/src/main/resources/org_wso2_carbon_analytics_cdmf-1.0.0.car
+features/org.wso2.carbon.analytics.emm.feature/src/main/resources/org_wso2_carbon_analytics_emm-1.0.0.car
