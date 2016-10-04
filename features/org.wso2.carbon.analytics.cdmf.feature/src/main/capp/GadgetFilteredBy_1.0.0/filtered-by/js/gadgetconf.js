@@ -20,7 +20,7 @@ var gadgetConfig = {
     "id": "breadcrumbs",
     "polling_interval": 30000,
     "pub_sub_channel": "filter",
-    "featureSource": "https://localhost:9443/devicemgt_admin/dashboard/feature-non-compliant-device-count-over-total",
-    "defaultSource": "https://localhost:9443/devicemgt_admin/dashboard/filtered-device-count-over-total",
+    "featureSource": "https://localhost:9443/api/device-mgt/v1.0/dashboard/feature-non-compliant-device-count-over-total",
+    "defaultSource": "https://localhost:9443/api/device-mgt/v1.0/dashboard/filtered-device-count-over-total",
     "domain": "carbon.super"
 };
