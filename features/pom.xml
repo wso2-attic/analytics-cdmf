@@ -30,6 +30,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>org.wso2.carbon.analytics.cdmf.feature</module>
-        <module>org.wso2.carbon.analytics.emm.feature</module>
+        <module>org.wso2.carbon.analytics.emm.dashboard.feature</module>
     </modules>
 </project>
