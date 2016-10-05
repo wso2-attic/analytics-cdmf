@@ -24,4 +24,4 @@ target
 *.pyc
 .sonar
 features/org.wso2.carbon.analytics.cdmf.feature/src/main/resources/
-features/org.wso2.carbon.analytics.emm.feature/src/main/resources/
+features/org.wso2.carbon.analytics.emm.dashboard.feature/src/main/resources/
