@@ -7,21 +7,20 @@
 *.jar
 *.war
 *.ear
+*.car
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-
-# Mobile Tools for Java (J2ME)
 
 # Ignore everything in this directory
 target
 .classpath
 .settings
 .project
-*.iml
 .idea
 .DS_Store
 *.pyc
 .sonar
-features/org.wso2.carbon.analytics.cdmf.feature/src/main/resources/
-features/org.wso2.carbon.analytics.emm.dashboard.feature/src/main/resources/
+
+# idea files
+*.iml
