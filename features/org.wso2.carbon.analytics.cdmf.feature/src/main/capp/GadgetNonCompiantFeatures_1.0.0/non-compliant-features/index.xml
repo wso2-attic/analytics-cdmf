@@ -65,20 +65,22 @@
                 <link rel="stylesheet" href="css/style.css" type="text/css"/>
             </head>
             <body>
-                <h3 class="add-padding-left-5x add-padding-right-5x">Total non-compliant features : <span class="label label-danger" id="noOfNonCompliancePolicies"></span></h3>
+                <h4 class="add-padding-left-5x add-padding-top-3x add-padding-right-5x">
+                    Total non-compliant features &nbsp;:&nbsp; <span class="label label-danger" id="noOfNonCompliancePolicies">0</span>
+                </h4>
                 <div id="chart"></div>
-                <div class="add-padding-5x">
+                <div class="add-padding-left-5x">
                     <div class="form-inline">
                         <div class="form-group clearfix">
                             <div class="pull-left">
-                                <label for="input-name" class="control-label">Show</label>
+                                <label for="input-name" class="control-label">Show&nbsp;</label>
                                 <select id="paginationNumber" class="form-control" onChange="bc.changePaginationNumber(this.value);">
                                     <option value=5>5</option>
                                     <option value=10>10</option>
                                     <option value=15>15</option>
                                     <option value=20>20</option>
                                 </select>
-                                features
+                                &nbsp;features
                             </div>
                             <div class="pull-right">
                                 <div id="idPaginate"></div>

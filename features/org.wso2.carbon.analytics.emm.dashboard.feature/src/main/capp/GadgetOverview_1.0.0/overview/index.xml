@@ -63,23 +63,35 @@
             <body>
                 <div>
                     <div class="col-3 image"></div>
-                    <div class="col-9 add-padding-right-4x">
+                    <div class="col-8 add-padding-right-4x">
                         <ul class="list-group">
                             <li id="total" class="list-group-item" onClick="ov.onclick('total')">
-                                <h1>Total Devices : <span class="label label-primary" id="deviceCount"></span></h1>
+                                <h4>
+                                    Total Devices &nbsp;:&nbsp;
+                                    <span class="label label-primary" id="deviceCount"></span>
+                                </h4>
                             </li>
                             <li id="ACTIVE" class="list-group-item" onClick="ov.onclick('active')">
-                                <i class="icon fw fw-success text-success"></i>Active
+                                <i class="icon fw fw-success text-success"></i>
+                                &nbsp;&nbsp;Active
                                 <span class="label" id="activeDevices"></span>
                                 <span class="progress-bg"  id="activeDevicesProgress"></span>
                             </li>
+                            <li id="UNREACHABLE" class="list-group-item" onClick="ov.onclick('unreachable')">
+                                <i class="icon fw fw-warning text-warning"></i>
+                                &nbsp;&nbsp;Unreachable
+                                <span class="label" id="unreachableDevices"></span>
+                                <span class="progress-bg"  id="unreachableDevicesProgress"></span>
+                            </li>
                             <li id="INACTIVE" class="list-group-item" onClick="ov.onclick('inactive')">
-                                <i class="icon fw fw-disabled text-mute"></i> Inactive
+                                <i class="icon fw fw-disabled text-mute"></i>
+                                &nbsp;&nbsp;Inactive
                                 <span class="label" id="inactiveDevices"></span>
                                 <span class="progress-bg" id="inactiveDevicesProgress"></span>
                             </li>
                             <li id="REMOVED" class="list-group-item" onClick="ov.onclick('removed')">
-                                <i class="icon fw fw-delete text-danger"></i> Removed
+                                <i class="icon fw fw-delete text-danger"></i>
+                                &nbsp;&nbsp;Removed
                                 <span class="label" id="removedDevices"></span>
                                 <span class="progress-bg" id="removedDevicesProgress"></span>
                             </li>
