@@ -70,19 +70,20 @@ body.dark .list-group-item:hover {
 }
 
 body.dark .items-group {
-    border: 1px solid #1E2531;
+    border: none;
 }
 
 .items-group > .group-item {
     border-right: 1px solid #E3E5E6;
     padding: 10px;
     cursor: pointer;
-    height: 100%; 
+    height: 100%;
     position: relative;
 }
 
 .items-group > .group-item > div {
     position: absolute;
+    /*noinspection CssUnknownProperty*/
     transform: translate(0, 10%);
     left: 0;
     right: 0;
@@ -93,6 +94,10 @@ body.dark .items-group > .group-item {
 }
 
 .items-group > .group-item:last-child {
+    border-right: none;
+}
+
+body.dark .items-group > .group-item:last-child {
     border-right: none;
 }
 
@@ -115,9 +120,9 @@ body.dark .items-group > .group-item {
 }
 
 .items-group > .group-item:hover {
-    background-color: #E3E5E6; 
+    background-color: #E3E5E6;
 }
 
 body.dark .items-group > .group-item:hover {
-    background-color: #353C48; 
+    background-color: #353C48;
 }
