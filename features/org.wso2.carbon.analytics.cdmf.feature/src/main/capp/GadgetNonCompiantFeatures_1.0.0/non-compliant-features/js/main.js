@@ -38,6 +38,9 @@ ncp.meta = {
     "names": ["id", "name", "Device count"],
     "types": ["ordinal", "ordinal", "linear"]
 };
+
+var body = "body";
+
 ncp.config = {
     type: "bar",
     x: "id",
@@ -60,10 +63,8 @@ ncp.config = {
     //yAxisStrokeSize:0,
     //yAxisFontSize:0,
     grid: false,
-    width: $('body').width(),
-    height: $('body').height() - 160,
-//    width: $(window).width() * 0.95,
-//    height: $(window).width() * 0.65 > $(window).height() ? $(window).height() : $(window).width() * 0.65,
+    width: $(body).width(),
+    height: $(body).height() - 110,
     padding: {"top": 15, "left": 150, "bottom": 30, "right": 50}
 };
 
