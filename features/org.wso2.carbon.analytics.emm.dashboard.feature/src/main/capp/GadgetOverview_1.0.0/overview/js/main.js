@@ -29,7 +29,6 @@ ov.force_fetch = false;
 ov.freeze = false;
 
 ov.initialize = function () {
-    //ov.loadFiltersFromURL();
     ov.startPolling();
 };
 
@@ -38,6 +37,7 @@ ov.startPolling = function () {
     setTimeout(function () {
         ov.fetch();
     }, 500);
+    //noinspection JSUnusedGlobalSymbols
     this.polling_task = setInterval(function () {
         ov.fetch();
     }, gadgetConfig.polling_interval);
@@ -45,78 +45,97 @@ ov.startPolling = function () {
 
 ov.fetch = function () {
     ov.data.length = 0;
-    //ov.force_fetch = false;
-    wso2.gadgets.XMLHttpRequest.get(gadgetConfig.source,
-        function(response){
+
+    //noinspection JSUnresolvedVariable
+    wso2.gadgets.XMLHttpRequest.get(
+        gadgetConfig.source,
+        function (response) {
+            console.log(JSON.stringify(response));
             if (Object.prototype.toString.call(response) === '[object Array]' && response.length === 2) {
-                var data = response[0]["data"],
-                    totalCount = 0,
-                    activeCount = 0,
-                    inactiveCount = 0,
-                    removedCount = 0;
+                var totalDeviceCountData = response[0]["data"];
 
-                if(data){
-                    totalCount = data[0].deviceCount;
-                }
-                document.getElementById('deviceCount').innerHTML = totalCount;
-                document.getElementById('total').setAttribute("onclick", "ov.onclick('')");
-
-                data = response[1]["data"];
-                if (data && data.length > 0) {
-                    ov.filter_context = response[1]["groupingAttribute"];
-                    for (var i = 0; i < data.length; i++) {
-                        if (data[i].group == "ACTIVE"){
-                            activeCount = data[i].deviceCount;
-                            document.getElementById('activeDevices').innerHTML = activeCount;
-                            document.getElementById(data[i].group).setAttribute("onclick", "ov.onclick('"+data[i].group+"')");
-                        } else if (data[i].group == "INACTIVE"){
-                            inactiveCount = data[i].deviceCount;
-                            document.getElementById('inactiveDevices').innerHTML = inactiveCount;
-                            document.getElementById(data[i].group).setAttribute("onclick", "ov.onclick('"+data[i].group+"')");
-                        } else if (data[i].group == "REMOVED"){
-                            removedCount = data[i].deviceCount;
-                            document.getElementById('removedDevices').innerHTML = removedCount;
-                            document.getElementById(data[i].group).setAttribute("onclick", "ov.onclick('"+data[i].group+"')");
+                if (totalDeviceCountData && totalDeviceCountData.length > 0) {
+                    //noinspection JSUnresolvedVariable
+                    var totalDeviceCount = totalDeviceCountData[0].deviceCount;
+                    if (totalDeviceCount > 0) {
+                        $("#TOTAL").css("cursor", "pointer");
+                        document.getElementById('deviceCount').innerHTML = totalDeviceCount.toString();
+                        document.getElementById('TOTAL').setAttribute("onclick", "ov.onclick('total')");
+                        var data = response[1]["data"];
+                        if (data && data.length > 0) {
+                            ov.filter_context = response[1]["groupingAttribute"];
+                            for (var i = 0; i < data.length; i++) {
+                                if (data[i].group == "ACTIVE") {
+                                    //noinspection JSUnresolvedVariable
+                                    var activeDeviceCount = data[i].deviceCount;
+                                    document.getElementById('activeDevices').innerHTML = activeDeviceCount.toString();
+                                    if (activeDeviceCount > 0) {
+                                        $("#ACTIVE").css("cursor", "pointer");
+                                        document.getElementById(data[i].group).
+                                            setAttribute("onclick", "ov.onclick('" + data[i].group + "')");
+                                    } else {
+                                        $("#ACTIVE").css("cursor", "default");
+                                    }
+                                    //updating count as a percentage
+                                    document.getElementById('activeDevicesProgress').style.width =
+                                        (activeDeviceCount * 100 / totalDeviceCount) + '%';
+                                } else if (data[i].group == "UNREACHABLE") {
+                                    //noinspection JSUnresolvedVariable
+                                    var unreachableDeviceCount = data[i].deviceCount;
+                                    document.getElementById('unreachableDevices').innerHTML = unreachableDeviceCount.toString();
+                                    if (unreachableDeviceCount > 0) {
+                                        $("#UNREACHABLE").css("cursor", "pointer");
+                                        document.getElementById(data[i].group).
+                                            setAttribute("onclick", "ov.onclick('" + data[i].group + "')");
+                                    } else {
+                                        $("#UNREACHABLE").css("cursor", "default");
+                                    }
+                                    //updating count as a percentage
+                                    document.getElementById('unreachableDevicesProgress').style.width =
+                                        (unreachableDeviceCount * 100 / totalDeviceCount) + '%';
+                                } else if (data[i].group == "INACTIVE") {
+                                    //noinspection JSUnresolvedVariable
+                                    var inactiveDeviceCount = data[i].deviceCount;
+                                    document.getElementById('inactiveDevices').innerHTML = inactiveDeviceCount.toString();
+                                    if (inactiveDeviceCount > 0) {
+                                        $("#INACTIVE").css("cursor", "pointer");
+                                        document.getElementById(data[i].group).
+                                            setAttribute("onclick", "ov.onclick('" + data[i].group + "')");
+                                    } else {
+                                        $("#INACTIVE").css("cursor", "default");
+                                    }
+                                    //updating count as a percentage
+                                    document.getElementById('inactiveDevicesProgress').style.width =
+                                        (inactiveDeviceCount * 100 / totalDeviceCount) + '%';
+                                } else if (data[i].group == "REMOVED") {
+                                    //noinspection JSUnresolvedVariable
+                                    var removedDeviceCount = data[i].deviceCount;
+                                    document.getElementById('removedDevices').innerHTML = removedDeviceCount.toString();
+                                    if (removedDeviceCount > 0) {
+                                        $("#REMOVED").css("cursor", "pointer");
+                                        document.getElementById(data[i].group).
+                                            setAttribute("onclick", "ov.onclick('" + data[i].group + "')");
+                                    } else {
+                                        $("#REMOVED").css("cursor", "default");
+                                    }
+                                    //updating count as a percentage
+                                    document.getElementById('removedDevicesProgress').style.width =
+                                        (removedDeviceCount * 100 / totalDeviceCount) + '%';
+                                }
+                            }
                         }
+                    } else {
+                        $("#TOTAL").css("cursor", "default");
+                        $("#ACTIVE").css("cursor", "default");
+                        $("#UNREACHABLE").css("cursor", "default");
+                        $("#INACTIVE").css("cursor", "default");
+                        $("#REMOVED").css("cursor", "default");
                     }
-
-                    if(totalCount == 0){
-                        document.getElementById('deviceCount').innerHTML = totalCount;
-                        document.getElementById('total').removeAttribute("onclick");
-                    }
-                    if(activeCount == 0){
-                        document.getElementById('activeDevices').innerHTML = activeCount;
-                        document.getElementById('ACTIVE').removeAttribute("onclick");
-                    }
-                    if(inactiveCount == 0){
-                        document.getElementById('inactiveDevices').innerHTML = inactiveCount;
-                        document.getElementById('INACTIVE').removeAttribute("onclick");
-                    }
-                    if(removedCount == 0){
-                        document.getElementById('removedDevices').innerHTML = removedCount;
-                        document.getElementById('REMOVED').removeAttribute("onclick");
-                    }
-
-                    var activeDevices = document.getElementById('activeDevices'),
-                        activeDevicesProgress = document.getElementById('activeDevicesProgress'),
-                        activeDevicesPercentage = (activeCount * 100 / totalCount)+'%';
-                    activeDevicesProgress.style.width = activeDevicesPercentage;
-
-                    var inactiveDevices = document.getElementById('inactiveDevices'),
-                        inactiveDevicesProgress = document.getElementById('inactiveDevicesProgress'),
-                        inactiveDevicesPercentage = (inactiveCount * 100 / totalCount);
-                    inactiveDevicesProgress.style.width = inactiveDevicesPercentage;
-
-                    var removedDevices = document.getElementById('removedDevices'),
-                        removedDevicesProgress = document.getElementById('removedDevicesProgress'),
-                        removedDevicesPercentage = (removedCount * 100 / totalCount);
-                    removedDevicesProgress.style.width = removedDevicesPercentage;
-
                 }
             } else {
                 console.error("Invalid response structure found: " + JSON.stringify(response));
             }
-        }, function(){
+        }, function () {
             console.warn("Error accessing source for : " + gadgetConfig.id);
         });
 };
