@@ -61,15 +61,21 @@
                 <link rel="stylesheet" href="css/style.css" type="text/css"/>
             </head>
             <body>
-                <div>
+                <div class="contents">
                     <div class="col-3 image"></div>
                     <div class="col-8 counts add-padding-right-4x">
                         <ul class="list-group">
                             <li id="TOTAL" class="list-group-item">
                                 <h4>
-                                    Total Devices &nbsp;:&nbsp;
-                                    <span class="label label-primary" id="deviceCount">0</span>
+                                    Devices in total
                                 </h4>
+                                <h2>
+                                    <span
+                                        id="deviceCount"
+                                        class="label label-primary">
+                                        0
+                                    </span>
+                                </h2>
                             </li>
                             <li id="ACTIVE" class="list-group-item">
                                 <i class="icon fw fw-success text-success"></i>

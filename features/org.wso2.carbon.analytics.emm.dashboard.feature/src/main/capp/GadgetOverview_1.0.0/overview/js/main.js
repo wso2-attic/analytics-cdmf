@@ -50,78 +50,57 @@ ov.fetch = function () {
     wso2.gadgets.XMLHttpRequest.get(
         gadgetConfig.source,
         function (response) {
-            console.log(JSON.stringify(response));
+            // console.log(JSON.stringify(response));
             if (Object.prototype.toString.call(response) === '[object Array]' && response.length === 2) {
                 var totalDeviceCountData = response[0]["data"];
-
                 if (totalDeviceCountData && totalDeviceCountData.length > 0) {
                     //noinspection JSUnresolvedVariable
                     var totalDeviceCount = totalDeviceCountData[0].deviceCount;
                     if (totalDeviceCount > 0) {
-                        $("#TOTAL").css("cursor", "pointer");
-                        document.getElementById('deviceCount').innerHTML = totalDeviceCount.toString();
-                        document.getElementById('TOTAL').setAttribute("onclick", "ov.onclick('total')");
+                        var totalDeviceCountDivElm = "#TOTAL";
+                        var totalDeviceCountElm = "#deviceCount";
+                        $(totalDeviceCountElm).html(totalDeviceCount.toString());
+                        $(totalDeviceCountDivElm).attr("onclick", "ov.onclick('total')");
+                        $(totalDeviceCountDivElm).css("cursor", "pointer");
                         var data = response[1]["data"];
                         if (data && data.length > 0) {
                             ov.filter_context = response[1]["groupingAttribute"];
                             for (var i = 0; i < data.length; i++) {
+                                var deviceCountElm, deviceCountDivElm, deviceCountProgress;
                                 if (data[i].group == "ACTIVE") {
-                                    //noinspection JSUnresolvedVariable
-                                    var activeDeviceCount = data[i].deviceCount;
-                                    document.getElementById('activeDevices').innerHTML = activeDeviceCount.toString();
-                                    if (activeDeviceCount > 0) {
-                                        $("#ACTIVE").css("cursor", "pointer");
-                                        document.getElementById(data[i].group).
-                                            setAttribute("onclick", "ov.onclick('" + data[i].group + "')");
-                                    } else {
-                                        $("#ACTIVE").css("cursor", "default");
-                                    }
-                                    //updating count as a percentage
-                                    document.getElementById('activeDevicesProgress').style.width =
-                                        (activeDeviceCount * 100 / totalDeviceCount) + '%';
+                                    deviceCountElm = "#activeDevices";
+                                    deviceCountDivElm = "#ACTIVE";
+                                    deviceCountProgress = "activeDevicesProgress";
                                 } else if (data[i].group == "UNREACHABLE") {
-                                    //noinspection JSUnresolvedVariable
-                                    var unreachableDeviceCount = data[i].deviceCount;
-                                    document.getElementById('unreachableDevices').innerHTML = unreachableDeviceCount.toString();
-                                    if (unreachableDeviceCount > 0) {
-                                        $("#UNREACHABLE").css("cursor", "pointer");
-                                        document.getElementById(data[i].group).
-                                            setAttribute("onclick", "ov.onclick('" + data[i].group + "')");
-                                    } else {
-                                        $("#UNREACHABLE").css("cursor", "default");
-                                    }
-                                    //updating count as a percentage
-                                    document.getElementById('unreachableDevicesProgress').style.width =
-                                        (unreachableDeviceCount * 100 / totalDeviceCount) + '%';
+                                    deviceCountElm = "#unreachableDevices";
+                                    deviceCountDivElm = "#UNREACHABLE";
+                                    deviceCountProgress = "unreachableDevicesProgress";
                                 } else if (data[i].group == "INACTIVE") {
-                                    //noinspection JSUnresolvedVariable
-                                    var inactiveDeviceCount = data[i].deviceCount;
-                                    document.getElementById('inactiveDevices').innerHTML = inactiveDeviceCount.toString();
-                                    if (inactiveDeviceCount > 0) {
-                                        $("#INACTIVE").css("cursor", "pointer");
-                                        document.getElementById(data[i].group).
-                                            setAttribute("onclick", "ov.onclick('" + data[i].group + "')");
-                                    } else {
-                                        $("#INACTIVE").css("cursor", "default");
-                                    }
-                                    //updating count as a percentage
-                                    document.getElementById('inactiveDevicesProgress').style.width =
-                                        (inactiveDeviceCount * 100 / totalDeviceCount) + '%';
+                                    deviceCountElm = "#inactiveDevices";
+                                    deviceCountDivElm = "#INACTIVE";
+                                    deviceCountProgress = "inactiveDevicesProgress";
                                 } else if (data[i].group == "REMOVED") {
-                                    //noinspection JSUnresolvedVariable
-                                    var removedDeviceCount = data[i].deviceCount;
-                                    document.getElementById('removedDevices').innerHTML = removedDeviceCount.toString();
-                                    if (removedDeviceCount > 0) {
-                                        $("#REMOVED").css("cursor", "pointer");
-                                        document.getElementById(data[i].group).
-                                            setAttribute("onclick", "ov.onclick('" + data[i].group + "')");
-                                    } else {
-                                        $("#REMOVED").css("cursor", "default");
-                                    }
-                                    //updating count as a percentage
-                                    document.getElementById('removedDevicesProgress').style.width =
-                                        (removedDeviceCount * 100 / totalDeviceCount) + '%';
+                                    deviceCountElm = "#removedDevices";
+                                    deviceCountDivElm = "#REMOVED";
+                                    deviceCountProgress = "removedDevicesProgress";
                                 }
+                                //noinspection JSUnresolvedVariable
+                                var deviceCount = data[i].deviceCount;
+                                if (deviceCount > 0) {
+                                    if (deviceCount > 999) {
+                                        $(deviceCountElm).html("999<sup>+</sup>");
+                                    } else {
+                                        $(deviceCountElm).html(deviceCount.toString());
+                                    }
+                                    $(deviceCountDivElm).css("cursor", "pointer");
+                                    $(deviceCountDivElm).attr("onclick", "ov.onclick('" + data[i].group + "')");
+                                } else {
+                                    $(deviceCountDivElm).css("cursor", "default");
+                                    $(deviceCountDivElm).removeAttr("onclick");
+                                }
+                                //updating count as a percentage
+                                document.getElementById(deviceCountProgress).style.width =
+                                    (deviceCount * 100 / totalDeviceCount) + '%';
                             }
                         }
                     } else {
