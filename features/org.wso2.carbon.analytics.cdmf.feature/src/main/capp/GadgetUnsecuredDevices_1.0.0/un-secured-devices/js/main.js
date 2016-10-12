@@ -52,7 +52,7 @@ vb.fetch = function () {
     //noinspection JSUnresolvedVariable
     wso2.gadgets.XMLHttpRequest.get(gadgetConfig.source,
         function (response) {
-            console.log(JSON.stringify(response));
+            // console.log(JSON.stringify(response));
             if (Object.prototype.toString.call(response) === '[object Array]' && response.length === 1) {
                 //noinspection JSUnresolvedVariable
                 vb.filter_context = response[0].groupingAttribute;
