@@ -62,9 +62,9 @@
             </head>
             <body>
                 <div class="clearfix items-group">
-                    <div id="non-complaint" class="col-6 group-item" onClick="bc.onclick2('non-compliant')">
+                    <div id="NON_COMPLIANT" class="col-6 group-item">
                         <div>
-                            <h1 id="non-complaintSpan" class="text-center text-danger"></h1>
+                            <h1 id="non-compliant-count" class="text-center text-success">0</h1>
                             <h5 class="text-center">
                                 <span class="icon fw fw-stack">
                                     <i class="fw fw-policy fw-stack-1x"></i>
@@ -74,21 +74,19 @@
                             </h5>
                         </div>
                     </div>
-                    <div id="unmonitored" class="col-6 group-item" onClick="bc.onclick2('unmonitored')">
+                    <div id="UNMONITORED" class="col-6 group-item">
                         <div>
-                            <h1 id="unmonitoredSpan" class="text-center text-warning"></h1>
+                            <h1 id="unmonitored-count" class="text-center text-success">0</h1>
                             <h5 class="text-center">
                                 <span class="icon fw fw-stack">
                                     <i class="fw fw-mobile fw-stack-1x"></i>
                                     <i class="fw fw-block fw-stack-2x"></i>
                                 </span>
-                                &nbsp;Un-monitored
+                                &nbsp;Unmonitored
                             </h5>
                         </div>
                     </div>
                 </div>
-
-
             </body>
         </html>
         ]]>
