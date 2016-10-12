@@ -65,7 +65,7 @@ ncp.config = {
     grid: false,
     width: $(body).width(),
     height: $(body).height() - 110,
-    padding: {"top": 15, "left": 150, "bottom": 30, "right": 50}
+    padding: {"top": 15, "left": 150, "bottom": 30, "right": 25}
 };
 
 ncp.initialize = function () {
