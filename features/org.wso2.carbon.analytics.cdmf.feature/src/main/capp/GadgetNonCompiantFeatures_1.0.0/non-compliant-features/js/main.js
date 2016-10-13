@@ -98,6 +98,7 @@ ncp.startPolling = function () {
         ncp.update();
         ncp.freeze = ncp.selected_filter_groups.length > 0;
     }, 500);
+    //noinspection JSUnusedGlobalSymbols
     this.polling_task = setInterval(function () {
         ncp.update();
     }, gadgetConfig.polling_interval);
@@ -112,12 +113,27 @@ ncp.update = function () {
 ncp.fetch = function (cb) {
     ncp.data.length = 0;
     ncp.force_fetch = false;
+    //noinspection JSUnresolvedVariable
     wso2.gadgets.XMLHttpRequest.get(gadgetConfig.source + "?start=" + ncp.fromIndex + "&length=" + ncp.count,
-        function(response){
+        function (response) {
+            console.log(JSON.stringify(response));
             if (Object.prototype.toString.call(response) === '[object Array]' && response.length === 1) {
                 ncp.filter_context = response[0]["groupingAttribute"];
+                var nonCompliantFeatureCount = response[0]["totalRecordCount"];
                 var data = response[0]["data"];
-                if (data && data.length > 0) {
+                var headerMsgCount = "#header-msg-count";
+                var headerMsgText = "#header-msg-text";
+                var chartDiv = "#chart";
+                var paginationView = "#pagination-view";
+                if (nonCompliantFeatureCount == 0) {
+                    $(headerMsgCount).removeClass("label-danger");
+                    $(headerMsgCount).addClass("label-success");
+                    $(headerMsgCount).addClass("label-zero");
+                    $(headerMsgCount).html(nonCompliantFeatureCount.toString());
+                    $(headerMsgText).html("non-compliant features found.");
+                    $(chartDiv).addClass("hidden");
+                    $(paginationView).addClass("hidden");
+                } else if (data && data.length > 0) {
                     for (var i = 0; i < data.length; i++) {
                         ncp.data.push(
                             [data[i]["group"], data[i]["displayNameForGroup"], data[i]["deviceCount"]]
@@ -128,14 +144,23 @@ ncp.fetch = function (cb) {
                     } else {
                         cb(ncp.data);
                     }
+                    $(headerMsgCount).removeClass("label-zero");
+                    $(headerMsgCount).removeClass("label-success");
+                    $(headerMsgCount).addClass("label-danger");
+                    $(headerMsgCount).html(nonCompliantFeatureCount.toString());
+                    if (nonCompliantFeatureCount == 1) {
+                        $(headerMsgText).html("non-compliant feature found.");
+                    } else {
+                        $(headerMsgText).html("non-compliant features found.");
+                    }
                     ncp.onData(response);
-                    var div = document.getElementById('noOfNonCompliancePolicies');
-                    div.innerHTML = response[0]["totalRecordCount"];
+                    $(chartDiv).removeClass("hidden");
+                    $(paginationView).removeClass("hidden");
                 }
             } else {
                 console.error("Invalid response structure found: " + JSON.stringify(response));
             }
-        }, function(){
+        }, function () {
             console.warn("Error accessing source for : " + gadgetConfig.id);
         });
 };
@@ -157,6 +182,7 @@ ncp.onPaginationClicked = function (e, originalEvent, type, page) {
     ncp.fromIndex = (page - 1) * ncp.count;
     ncp.globalPage = ncp.fromIndex;
     ncp.data = [];
+    //noinspection JSPotentiallyInvalidConstructorUsage
     ncp.chart = new vizg(
         [
             {

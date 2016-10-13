@@ -66,11 +66,13 @@
             </head>
             <body>
                 <h4 class="add-padding-left-5x add-padding-top-3x add-padding-right-5x">
-                    <span class="label label-success" id="noOfNonCompliancePolicies">0</span>
-                    &nbsp; non-compliant features found.
+                    <div id="header-msg">
+                        <span id="header-msg-count" class="label label-success label-zero">0</span>
+                        &nbsp; <span id="header-msg-text" >non-compliant features found.<span>
+                    </div>
                 </h4>
-                <div id="chart"></div>
-                <div class="add-padding-left-5x">
+                <div id="chart" class="hidden"></div>
+                <div id="pagination-view" class="add-padding-left-5x hidden">
                     <div class="form-inline">
                         <div class="form-group clearfix">
                             <div class="pull-left">
