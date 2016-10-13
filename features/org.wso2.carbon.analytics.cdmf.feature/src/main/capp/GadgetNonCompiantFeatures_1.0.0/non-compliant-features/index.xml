@@ -66,8 +66,8 @@
             </head>
             <body>
                 <h4 class="add-padding-left-5x add-padding-top-3x add-padding-right-5x">
-                    Total non-compliant features &nbsp;:&nbsp;
-                    <span class="label label-danger" style="border-radius: 2px;" id="noOfNonCompliancePolicies">0</span>
+                    <span class="label label-primary" style="border-radius: 2px;" id="noOfNonCompliancePolicies">0</span>
+                    &nbsp; Non-compliant features
                 </h4>
                 <div id="chart"></div>
                 <div class="add-padding-left-5x">
