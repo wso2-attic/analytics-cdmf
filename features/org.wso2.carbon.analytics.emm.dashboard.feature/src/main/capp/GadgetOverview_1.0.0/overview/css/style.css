@@ -16,10 +16,17 @@
  * under the License.
  */
 
+.contents {
+    margin-top: -40px;
+}
+
 .image {
+    /*noinspection CssOptimizeSimilarProperties*/
     background-image: url('../img/phone.png');
     background-size: 50px auto;
+    /*noinspection CssOptimizeSimilarProperties*/
     background-repeat: no-repeat;
+    /*noinspection CssOptimizeSimilarProperties*/
     background-position: 50% 50%;
     min-width: 50px;
     height: 100%;
@@ -30,6 +37,7 @@ body.dark .image {
 }
 
 .list-group {
+    /*noinspection CssUnknownProperty*/
     transform: translate(0, 25%);
 }
 
@@ -50,11 +58,18 @@ body.dark .image {
 .list-group-item > h1 {
     font-size: 20px;
     margin: 0;
+}
 
+.list-group-item > h2 > span {
+    font-size: 35px;
+    padding: 5px 15px 5px 15px;
+}
+
+.list-group-item > h4 {
+    margin-top: 0;
 }
 
 .list-group-item > h1 > .label {
-
     display: inline-block;
     vertical-align: text-bottom;
     border-radius: 0;
