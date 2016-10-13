@@ -21,14 +21,17 @@
 }
 
 body.dark svg.marks .mark-group .background {
+    /*noinspection CssUnknownProperty*/
     fill: #121822 !important;
 }
 
 body.dark svg.marks .mark-group .mark-text text {
+    /*noinspection CssUnknownProperty*/
     fill: #7D8596 !important;
 }
 
 body.dark svg.marks .mark-group .mark-rule line {
+    /*noinspection CssUnknownProperty*/
     stroke: #E3E5E6 !important;
 }
 
@@ -139,7 +142,12 @@ body.dark .pagination > ul > .active > span:focus {
 }
 
 .label {
-    border-radius: 0;
+    border-radius: 4px;
+    font-size: 35px;
+    font-weight: 300;
+    padding: 3px 15px 3px 15px;
+    margin-bottom: 2px;
+    background: #3c763d;
     display: inline-block;
     vertical-align: text-bottom;
 }

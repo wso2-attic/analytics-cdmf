@@ -62,7 +62,9 @@ body.dark .image {
 
 .list-group-item > h2 > span {
     font-size: 35px;
-    padding: 5px 15px 5px 15px;
+    font-weight: 300;
+    border-radius: 4px;
+    padding: 3px 15px 3px 15px;
 }
 
 .list-group-item > h4 {
