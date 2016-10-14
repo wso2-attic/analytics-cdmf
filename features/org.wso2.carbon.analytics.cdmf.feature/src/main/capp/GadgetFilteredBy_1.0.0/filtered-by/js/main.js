@@ -31,13 +31,14 @@ fb.filterUrl = "";
 fb.gadgetUrl = gadgetConfig.defaultSource;
 fb.API_CHANGING_PARAMETER = "non-compliant-feature-code";
 fb.devices_template = '' +
-'<span class="deviceCount">{{filtered}}</span> ' +
-'out of <span class="totalDevices">{{total}}</span>';
+    '<span class="deviceCount">{{filtered}}</span>' +
+    '<hr class="out-of-break">' +
+    '<span>out of &nbsp;</span><span class="totalDevices">{{total}}</span>';
 
 fb.breadcrumb_template = '' +
-'<span id="{{id}}" class="label label-primary">' +
-'<span>{{label}}</span>' +
-'</span>';
+    '<span id="{{id}}" class="label label-primary">' +
+    '<span>{{label}}</span>' +
+    '</span>';
 
 fb.initialize = function () {
     $("div#breadcrumbs").on('click', 'i.remove', function () {
@@ -68,6 +69,7 @@ fb.loadFiltersFromURL = function () {
 
 fb.startPolling = function () {
     fb.updateDeviceCount();
+    //noinspection JSUnusedGlobalSymbols
     this.polling_task = setInterval(function () {
         fb.updateDeviceCount();
     }, gadgetConfig.polling_interval);
@@ -75,7 +77,7 @@ fb.startPolling = function () {
 
 fb.updateDeviceCount = function (force) {
     fb.force_fetch = !fb.force_fetch ? force || false : true;
-    if(fb.filterUrl != null){
+    if (fb.filterUrl != null) {
         fb.fetch(function (data) {
             var html = Mustache.to_html(fb.devices_template, data);
             $('#devices').html(html);
@@ -90,20 +92,24 @@ fb.fetch = function (cb) {
     if(fb.filterUrl != ""){
         endpointUrl = endpointUrl + "?" + getFilteringUrl();
     }
-    wso2.gadgets.XMLHttpRequest.get(endpointUrl,
-        function(response){
+    //noinspection JSUnresolvedVariable
+    wso2.gadgets.XMLHttpRequest.get(
+        endpointUrl,
+        function (response) {
+            // console.log(JSON.stringify(response));
             if (Object.prototype.toString.call(response) === '[object Array]' && response.length === 1) {
                 var results = response[0].data;
-                for (var data = {}, i = 0; i < results.length; i++) {
-                    if(results[i]["group"] != "total"){
+                var data = {};
+                for (var i = 0; i < results.length; i++) {
+                    if (results[i]["group"] == "filtered") {
                         data["filtered"] = results[i]["deviceCount"];
-                    } else {
+                    } else if (results[i]["group"] == "total") {
                         data["total"] = results[i]["deviceCount"];
                     }
                 }
                 if (data) {
-                    fb.data.filtered = data["filtered"] ? data["filtered"] : fb.data.filtered;
-                    fb.data.total = data["total"] ? data["total"] : fb.data.total;
+                    fb.data.filtered = data["filtered"];
+                    fb.data.total = data["total"];
                     if (fb.force_fetch) {
                         fb.updateDeviceCount();
                     } else {
@@ -113,7 +119,7 @@ fb.fetch = function (cb) {
             } else {
                 console.error("Invalid response structure found: " + JSON.stringify(response));
             }
-        }, function(){
+        }, function () {
             console.warn("Error accessing source for : " + gadgetConfig.id);
         });
 };
@@ -123,7 +129,9 @@ fb.updateURL = function (filterKey, selectedFilters) {
 };
 
 fb.subscribe = function (callback) {
+    //noinspection JSUnresolvedVariable
     gadgets.HubSettings.onConnect = function () {
+        //noinspection JSUnresolvedVariable,JSUnusedLocalSymbols
         gadgets.Hub.subscribe("subscriber", function (topic, data, subscriber) {
             callback(topic, data)
         });
@@ -132,6 +140,7 @@ fb.subscribe = function (callback) {
 
 fb.publish = function (data) {
     console.log(data);
+    //noinspection JSUnresolvedVariable
     gadgets.Hub.publish("publisher", data);
 };
 
@@ -139,15 +148,15 @@ fb.addBreadcrumb = function (filterKey, selectedFilters) {
     for (var i = 0; i < selectedFilters.length; i++) {
         var breadcrumbKey = filterKey + '_' + selectedFilters[i];
         var selectedFilters2 = selectedFilters[i].toString().toLowerCase();
-        var breadcrumbLable = filterKey.split(/(?=[A-Z])/).join(' ') + ':' + selectedFilters2.split(/(?=[A-Z])/).join(' ');
-        breadcrumbLable = breadcrumbLable.replace(/\w\S*/g, function (txt) {
+        var breadcrumbLabel = filterKey.split(/(?=[A-Z])/).join(' ') + ':' + selectedFilters2.split(/(?=[A-Z])/).join(' ');
+        breadcrumbLabel = breadcrumbLabel.replace(/\w\S*/g, function (txt) {
             return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
         });
         if (Object.prototype.toString.call(fb.breadcrumbs[filterKey]) !== '[object Array]') fb.breadcrumbs[filterKey] = [];
         var index = fb.breadcrumbs[filterKey].indexOf(selectedFilters[i]);
         if (index === -1) {
             fb.breadcrumbs[filterKey].push(selectedFilters[i]);
-            var html = Mustache.to_html(fb.breadcrumb_template, {'id': breadcrumbKey, 'label': breadcrumbLable});
+            var html = Mustache.to_html(fb.breadcrumb_template, {'id': breadcrumbKey, 'label': breadcrumbLabel});
             $('#breadcrumbs').append(html);
         }
     }
