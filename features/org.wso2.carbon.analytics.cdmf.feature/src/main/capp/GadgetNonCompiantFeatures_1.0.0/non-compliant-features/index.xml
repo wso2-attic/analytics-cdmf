@@ -73,7 +73,7 @@
                     <hr>
                 </h4>
                 <span id="body-msg-for-compliance" class="add-padding-left-5x add-padding-right-5x hidden">
-                    All devices (if any) are currently intact.
+                    All devices (if any) with assigned policies are currently intact.
                 <span>
                 <div id="chart" class="hidden"></div>
                 <div id="pagination-view" class="add-padding-left-5x hidden">

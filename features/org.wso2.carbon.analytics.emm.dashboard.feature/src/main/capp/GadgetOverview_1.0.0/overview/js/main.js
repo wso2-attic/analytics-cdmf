@@ -95,6 +95,7 @@ ov.fetch = function () {
                                     $(deviceCountDivElm).css("cursor", "pointer");
                                     $(deviceCountDivElm).attr("onclick", "ov.onclick('" + data[i].group + "')");
                                 } else {
+                                    $(deviceCountElm).html(deviceCount.toString());
                                     $(deviceCountDivElm).css("cursor", "default");
                                     $(deviceCountDivElm).removeAttr("onclick");
                                 }
