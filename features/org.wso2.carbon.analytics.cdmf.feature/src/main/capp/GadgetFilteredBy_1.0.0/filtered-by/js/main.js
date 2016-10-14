@@ -228,9 +228,9 @@ fb.updateBreadcrumbs = function (data, force_update) {
             }
         }
         if ($('#breadcrumbs').html()) {
-            $('#filterMsg').html("Devices are filtered by : ");
+            $('#filterMsg').html("Devices are filtered by :");
         } else {
-            $('#filterMsg').html("Click on charts to filter devices.");
+            $('#filterMsg').html("Click on any available device group to filter more on devices.");
         }
         fb.updateDeviceCount(true);
     }
