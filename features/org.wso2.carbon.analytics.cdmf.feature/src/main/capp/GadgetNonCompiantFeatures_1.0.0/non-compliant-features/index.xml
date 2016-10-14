@@ -68,9 +68,13 @@
                 <h4 class="add-padding-left-5x add-padding-top-3x add-padding-right-5x">
                     <div id="header-msg">
                         <span id="header-msg-count" class="label label-success label-zero">0</span>
-                        &nbsp; <span id="header-msg-text" >non-compliant features found.<span>
+                        &nbsp; <span id="header-msg-text">non-compliant features found.<span>
                     </div>
+                    <hr>
                 </h4>
+                <span id="body-msg-for-compliance" class="add-padding-left-5x add-padding-right-5x hidden">
+                    All devices (if any) are currently intact.
+                <span>
                 <div id="chart" class="hidden"></div>
                 <div id="pagination-view" class="add-padding-left-5x hidden">
                     <div class="form-inline">

@@ -64,7 +64,7 @@ ncp.config = {
     //yAxisFontSize:0,
     grid: false,
     width: $(body).width(),
-    height: $(body).height() - 134,
+    height: $(body).height() - 165,
     padding: {"top": 15, "left": 175, "bottom": 30, "right": 25}
 };
 
@@ -123,6 +123,7 @@ ncp.fetch = function (cb) {
                 var data = response[0]["data"];
                 var headerMsgCount = "#header-msg-count";
                 var headerMsgText = "#header-msg-text";
+                var bodyMsgForCompliance = "#body-msg-for-compliance";
                 var chartDiv = "#chart";
                 var paginationView = "#pagination-view";
                 if (nonCompliantFeatureCount == 0) {
@@ -131,6 +132,7 @@ ncp.fetch = function (cb) {
                     $(headerMsgCount).addClass("label-zero");
                     $(headerMsgCount).html(nonCompliantFeatureCount.toString());
                     $(headerMsgText).html("non-compliant features found.");
+                    $(bodyMsgForCompliance).removeClass("hidden");
                     $(chartDiv).addClass("hidden");
                     $(paginationView).addClass("hidden");
                 } else if (data && data.length > 0) {
@@ -153,6 +155,7 @@ ncp.fetch = function (cb) {
                     } else {
                         $(headerMsgText).html("non-compliant features found.");
                     }
+                    $(bodyMsgForCompliance).addClass("hidden");
                     ncp.onData(response);
                     $(chartDiv).removeClass("hidden");
                     $(paginationView).removeClass("hidden");
