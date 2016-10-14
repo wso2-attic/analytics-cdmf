@@ -68,7 +68,8 @@
                 <link rel="stylesheet" href="css/style.css" type="text/css"/>
             </head>
             <body style="margin-bottom: 0px;">
-                <h4 class="add-padding-left-5x add-padding-top-3x add-padding-right-5x">
+                <div id="chart" class="hidden"></div>
+                <h4 id="header-msg-for-zero-devices" class="add-padding-left-5x add-padding-top-3x add-padding-right-5x hidden">
                     <div id="header-msg">
                         <i class="icon fw fw-info text-info" style="margin-bottom: 3px;"></i>
                         &nbsp;
@@ -76,12 +77,12 @@
                         <hr>
                     </div>
                 </h4>
-                <span class="add-padding-left-5x add-padding-right-5x">
+                <span id="body-msg-for-zero-devices" class="add-padding-left-5x add-padding-right-5x hidden">
                     Enroll at least one device to see device grouping statistics in action.
                 <span>
-                <div id="chart" class="hidden"></div>
             </body>
         </html>
         ]]>
     </Content>
 </Module>
+

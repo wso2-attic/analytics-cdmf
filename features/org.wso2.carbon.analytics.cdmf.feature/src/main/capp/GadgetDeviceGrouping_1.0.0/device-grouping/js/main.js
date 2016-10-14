@@ -40,6 +40,9 @@ dg.meta = {
     "names": ["context", "group", "name", "percentage"],
     "types": ["ordinal", "ordinal", "ordinal", "linear"]
 };
+
+var body = "body";
+
 dg.config = {
     type: "bar",
     x: "context",
@@ -55,14 +58,13 @@ dg.config = {
             mode: "stack"
         }
     ],
-    width: $('body').width(),
-    height: $('body').height(),
-//    width: $(window).width() * 0.97,
-//    height: 250,
+    width: $(body).width(),
+    height: $(body).height(),
     padding: {"top": 25, "left": 25, "bottom": 25, "right": 25}
 };
 
 dg.initialize = function () {
+    //noinspection JSPotentiallyInvalidConstructorUsage
     dg.chart = new vizg(
         [
             {
@@ -101,10 +103,15 @@ dg.loadFiltersFromURL = function () {
         endpointUrl = endpointUrl + "?" + dg.filterUrl;
     }
 
-    wso2.gadgets.XMLHttpRequest.get(endpointUrl,
-        function(response){
+    //noinspection JSUnresolvedVariable
+    wso2.gadgets.XMLHttpRequest.get(
+        endpointUrl,
+        function (response) {
+            // console.log(JSON.stringify(response));
             for (var i = 0; i < response.length; i++) {
+                //noinspection JSUnresolvedVariable
                 dg.filter_contexts.push(response[i].groupingAttribute);
+                //noinspection JSUnresolvedVariable
                 dg.selected_filter_groups[response[i].groupingAttribute] = [];
             }
             for (var filter in urlParams) {
@@ -127,9 +134,10 @@ dg.loadFiltersFromURL = function () {
                     }
                 }
             }
-        }, function(){
+        }, function () {
             console.warn("Error accessing source for : " + gadgetConfig.id);
-        });
+        }
+    );
 };
 
 dg.startPolling = function () {
@@ -137,6 +145,7 @@ dg.startPolling = function () {
         dg.update();
         dg.freeze = dg.isFreeze();
     }, 500);
+    //noinspection JSUnusedGlobalSymbols
     this.polling_task = setInterval(function () {
         dg.update();
     }, gadgetConfig.polling_interval);
@@ -166,12 +175,14 @@ dg.fetch = function (cb) {
     dg.data.length = 0;
     dg.force_fetch = false;
     var endpointUrl = dg.gadgetUrl;
-    if(dg.filterUrl != ""){
+    if (dg.filterUrl != "") {
         endpointUrl = endpointUrl + "?" + dg.filterUrl;
     }
+    //noinspection JSUnresolvedVariable
     wso2.gadgets.XMLHttpRequest.get(endpointUrl,
-        function(response){
+        function (response) {
             if (Object.prototype.toString.call(response) === '[object Array]') {
+                var devicesAvailable = false;
                 for (var i = 0; i < response.length; i++) {
                     dg.sum = 0;
                     var context = response[i]["groupingAttribute"];
@@ -182,16 +193,35 @@ dg.fetch = function (cb) {
                             dg.selected_filter_groups[context] = [];
                         }
                         if (data.length > 0) {
+                            devicesAvailable = true;
                             for (var j = 0; j < data.length; j++){
                                 dg.sum += data[j]["deviceCount"];
                             }
                             for (j = 0; j < data.length; j++) {
                                 dg.data.push(
-                                    [context, data[j]["group"], data[j]["displayNameForGroup"] + " Count: " + data[j]["deviceCount"], (data[j]["deviceCount"] / dg.sum) * 100]
+                                    [
+                                        context,
+                                        data[j]["group"],
+                                            data[j]["displayNameForGroup"] + " Count: " +
+                                            data[j]["deviceCount"],
+                                            (data[j]["deviceCount"] / dg.sum) * 100
+                                    ]
                                 );
                             }
                         }
                     }
+                }
+                var headerMsgForZeroDevices = "#header-msg-for-zero-devices";
+                var bodyMsgForZeroDevices = "#body-msg-for-zero-devices";
+                var deviceGroupingChartView = "#chart";
+                if (devicesAvailable) {
+                    $(headerMsgForZeroDevices).addClass("hidden");
+                    $(bodyMsgForZeroDevices).addClass("hidden");
+                    $(deviceGroupingChartView).removeClass("hidden");
+                } else {
+                    $(headerMsgForZeroDevices).removeClass("hidden");
+                    $(bodyMsgForZeroDevices).removeClass("hidden");
+                    $(deviceGroupingChartView).addClass("hidden");
                 }
                 if (dg.force_fetch) {
                     dg.update();
@@ -201,9 +231,10 @@ dg.fetch = function (cb) {
             } else {
                 console.error("Invalid response structure found: " + JSON.stringify(response));
             }
-        }, function(){
+        }, function () {
             console.warn("Error accessing source for : " + gadgetConfig.id);
-        });
+        }
+    );
 };
 
 dg.updateURL = function () {
@@ -218,7 +249,9 @@ dg.updateURL = function () {
 };
 
 dg.subscribe = function (callback) {
+    //noinspection JSUnresolvedVariable
     gadgets.HubSettings.onConnect = function () {
+        //noinspection JSUnresolvedVariable, JSUnusedLocalSymbols
         gadgets.Hub.subscribe("subscriber", function (topic, data, subscriber) {
             callback(topic, data)
         });
@@ -226,6 +259,7 @@ dg.subscribe = function (callback) {
 };
 
 dg.publish = function (data) {
+    //noinspection JSUnresolvedVariable
     gadgets.Hub.publish("publisher", data);
 };
 

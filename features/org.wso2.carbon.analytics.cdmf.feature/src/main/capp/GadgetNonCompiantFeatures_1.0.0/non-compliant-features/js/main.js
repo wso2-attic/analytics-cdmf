@@ -69,6 +69,7 @@ ncp.config = {
 };
 
 ncp.initialize = function () {
+    //noinspection JSPotentiallyInvalidConstructorUsage
     ncp.chart = new vizg(
         [
             {
@@ -116,7 +117,7 @@ ncp.fetch = function (cb) {
     //noinspection JSUnresolvedVariable
     wso2.gadgets.XMLHttpRequest.get(gadgetConfig.source + "?start=" + ncp.fromIndex + "&length=" + ncp.count,
         function (response) {
-            console.log(JSON.stringify(response));
+            // console.log(JSON.stringify(response));
             if (Object.prototype.toString.call(response) === '[object Array]' && response.length === 1) {
                 ncp.filter_context = response[0]["groupingAttribute"];
                 var nonCompliantFeatureCount = response[0]["totalRecordCount"];
