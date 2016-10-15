@@ -17,14 +17,17 @@
  */
 
 body.dark svg.marks .mark-group .background {
+    /*noinspection CssUnknownProperty*/
     fill: #121822 !important;
 }
 
 body.dark svg.marks .mark-group .mark-text text {
+    /*noinspection CssUnknownProperty*/
     fill: #7D8596 !important;
 }
 
 body.dark svg.marks .mark-group .mark-rule line {
+    /*noinspection CssUnknownProperty*/
     stroke: #E3E5E6 !important;
 }
 
@@ -34,5 +37,15 @@ svg.marks .mark-group .mark-rect rect:hover {
 }
 
 body.dark svg.marks > g > .mark-group > g > .mark-text > text {
+    /*noinspection CssUnknownProperty*/
     fill: #fff !important;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #747F8F;
+    margin: 1em 0;
+    padding: 0;
 }
