@@ -65,26 +65,32 @@ ov.fetch = function () {
                         var data = response[1]["data"];
                         if (data && data.length > 0) {
                             ov.filter_context = response[1]["groupingAttribute"];
-                            var connectivityStatusesWithZeroDeviceCounts =
-                                ["#activeDevices", "#unreachableDevices", "#inactiveDevices", "#removedDevices"];
+                            var zeroDeviceCountElms = [
+                                "#activeDevices", "#unreachableDevices",
+                                "#inactiveDevices", "#removedDevices"
+                            ];
+                            var zeroDeviceCountPercentageElms = [
+                                "activeDevicesProgress", "unreachableDevicesProgress",
+                                "inactiveDevicesProgress", "removedDevicesProgress"
+                            ];
                             for (var i = 0; i < data.length; i++) {
-                                var deviceCountElm, deviceCountDivElm, deviceCountProgress;
+                                var deviceCountElm, deviceCountDivElm, deviceCountPercentageElm;
                                 if (data[i].group == "ACTIVE") {
                                     deviceCountElm = "#activeDevices";
                                     deviceCountDivElm = "#ACTIVE";
-                                    deviceCountProgress = "activeDevicesProgress";
+                                    deviceCountPercentageElm = "activeDevicesProgress";
                                 } else if (data[i].group == "UNREACHABLE") {
                                     deviceCountElm = "#unreachableDevices";
                                     deviceCountDivElm = "#UNREACHABLE";
-                                    deviceCountProgress = "unreachableDevicesProgress";
+                                    deviceCountPercentageElm = "unreachableDevicesProgress";
                                 } else if (data[i].group == "INACTIVE") {
                                     deviceCountElm = "#inactiveDevices";
                                     deviceCountDivElm = "#INACTIVE";
-                                    deviceCountProgress = "inactiveDevicesProgress";
+                                    deviceCountPercentageElm = "inactiveDevicesProgress";
                                 } else if (data[i].group == "REMOVED") {
                                     deviceCountElm = "#removedDevices";
                                     deviceCountDivElm = "#REMOVED";
-                                    deviceCountProgress = "removedDevicesProgress";
+                                    deviceCountPercentageElm = "removedDevicesProgress";
                                 }
                                 //noinspection JSUnresolvedVariable
                                 var deviceCount = data[i].deviceCount;
@@ -102,15 +108,18 @@ ov.fetch = function () {
                                     $(deviceCountDivElm).removeAttr("onclick");
                                 }
                                 // updating count as a percentage
-                                document.getElementById(deviceCountProgress).style.width =
+                                document.getElementById(deviceCountPercentageElm).style.width =
                                     (deviceCount * 100 / totalDeviceCount) + '%';
                                 // removing connectivity-status-groups with non-zero device counts
-                                connectivityStatusesWithZeroDeviceCounts.
-                                    splice(connectivityStatusesWithZeroDeviceCounts.indexOf(deviceCountElm), 1);
+                                zeroDeviceCountElms.
+                                    splice(zeroDeviceCountElms.indexOf(deviceCountElm), 1);
+                                zeroDeviceCountPercentageElms.
+                                    splice(zeroDeviceCountPercentageElms.indexOf(deviceCountPercentageElm), 1);
                             }
-                            // refreshing connectivity-status-groups with zero device counts with zero values
-                            for (var j = 0; j < connectivityStatusesWithZeroDeviceCounts.length; j++) {
-                                $(connectivityStatusesWithZeroDeviceCounts[j]).html(0);
+                            // refreshing zero-device-count-connectivity-status-groups with zero values and zero percentages
+                            for (var j = 0; j < zeroDeviceCountElms.length; j++) {
+                                $(zeroDeviceCountElms[j]).html(0);
+                                document.getElementById(zeroDeviceCountPercentageElms[j]).style.width = '0%';
                             }
                         }
                     } else {

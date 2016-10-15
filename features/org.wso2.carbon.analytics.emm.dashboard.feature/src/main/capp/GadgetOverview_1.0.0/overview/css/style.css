@@ -50,6 +50,7 @@ body.dark .image {
     vertical-align: text-bottom;
     float: right;
     font-size: 135%;
+    font-weight: 300;
     margin-top: -2px;
     border-radius: 0;
     padding-right: 0;
@@ -64,7 +65,7 @@ body.dark .image {
     font-size: 35px;
     font-weight: 300;
     border-radius: 4px;
-    padding: 3px 15px 3px 15px;
+    padding: 2px 15px 3px 15px;
 }
 
 .list-group-item > h4 {
