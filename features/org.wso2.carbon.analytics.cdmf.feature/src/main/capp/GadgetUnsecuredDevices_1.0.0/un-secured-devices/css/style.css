@@ -89,6 +89,10 @@ body.dark .items-group {
     right: 0;
 }
 
+.items-group > .group-item > div > h1 {
+    font-weight: 300;
+}
+
 body.dark .items-group > .group-item {
     border-right: 1px solid #353C48;
 }
