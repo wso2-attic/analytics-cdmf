@@ -65,6 +65,10 @@ ov.fetch = function () {
                         var data = response[1]["data"];
                         if (data && data.length > 0) {
                             ov.filter_context = response[1]["groupingAttribute"];
+                            var zeroDeviceCountDivElms = [
+                                "#ACTIVE", "#UNREACHABLE",
+                                "#INACTIVE", "#REMOVED"
+                            ];
                             var zeroDeviceCountElms = [
                                 "#activeDevices", "#unreachableDevices",
                                 "#inactiveDevices", "#removedDevices"
@@ -113,12 +117,15 @@ ov.fetch = function () {
                                 // removing connectivity-status-groups with non-zero device counts
                                 zeroDeviceCountElms.
                                     splice(zeroDeviceCountElms.indexOf(deviceCountElm), 1);
+                                zeroDeviceCountDivElms.
+                                    splice(zeroDeviceCountDivElms.indexOf(deviceCountDivElm), 1);
                                 zeroDeviceCountPercentageElms.
                                     splice(zeroDeviceCountPercentageElms.indexOf(deviceCountPercentageElm), 1);
                             }
                             // refreshing zero-device-count-connectivity-status-groups with zero values and zero percentages
                             for (var j = 0; j < zeroDeviceCountElms.length; j++) {
                                 $(zeroDeviceCountElms[j]).html(0);
+                                $(zeroDeviceCountDivElms[j]).css("cursor", "default");
                                 document.getElementById(zeroDeviceCountPercentageElms[j]).style.width = '0%';
                             }
                         }
