@@ -21,11 +21,11 @@
     <parent>
         <groupId>org.wso2.carbon.analytics.cdmf</groupId>
         <artifactId>wso2analytics-cdmf-parent</artifactId>
-        <version>1.0.1</version>
+        <version>1.0.2-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>analytics-cdmf-components</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2-SNAPSHOT</version>
     <packaging>pom</packaging>
 </project>
