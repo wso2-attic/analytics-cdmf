@@ -19,13 +19,13 @@
     <parent>
         <groupId>org.wso2.carbon.analytics.cdmf</groupId>
         <artifactId>analytics-cdmf-features</artifactId>
-        <version>1.0.1-SNAPSHOT</version>
+        <version>1.0.1</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>org.wso2.carbon.analytics.emm.dashboard.feature</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.1</version>
     <packaging>pom</packaging>
 
     <build>
