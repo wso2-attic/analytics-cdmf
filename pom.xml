@@ -29,7 +29,7 @@
     <groupId>org.wso2.carbon.analytics.cdmf</groupId>
     <artifactId>wso2analytics-cdmf-parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.2-SNAPSHOT</version>
 
     <licenses>
         <license>
@@ -51,7 +51,7 @@
     </scm>
 
     <properties>
-        <cdmf.analytics.version>1.0.0-SNAPSHOT</cdmf.analytics.version>
+        <!-- cdmf.analytics.version>1.0.0-SNAPSHOT</cdmf.analytics.version!-->
         <carbon.p2.plugin.version>1.5.3</carbon.p2.plugin.version>
         <org.apache.maven.plugins.version>2.4</org.apache.maven.plugins.version>
         <maven-bundle-plugin.version>2.5.3</maven-bundle-plugin.version>
