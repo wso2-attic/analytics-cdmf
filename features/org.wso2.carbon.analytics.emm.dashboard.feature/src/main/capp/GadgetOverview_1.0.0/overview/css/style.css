@@ -54,6 +54,7 @@ body.dark .image {
     margin-top: -2px;
     border-radius: 0;
     padding-right: 0;
+    color: #808080;
 }
 
 .list-group-item > h1 {

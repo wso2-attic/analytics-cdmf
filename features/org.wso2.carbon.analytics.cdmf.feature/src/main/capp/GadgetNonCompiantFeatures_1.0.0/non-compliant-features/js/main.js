@@ -64,7 +64,7 @@ ncp.config = {
     //yAxisFontSize:0,
     grid: false,
     width: $(body).width(),
-    height: $(body).height() - 165,
+    height: $(body).height() - 185,
     padding: {"top": 15, "left": 175, "bottom": 30, "right": 25}
 };
 

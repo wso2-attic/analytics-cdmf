@@ -73,7 +73,7 @@
                     <hr>
                 </h4>
                 <div id="chart" class="hidden"></div>
-                <div id="pagination-view" class="add-padding-left-5x add-padding-right-5x hidden">
+                <div id="pagination-view" class="add-padding-left-5x add-padding-top-5x add-padding-right-5x hidden">
                     <div class="form-inline">
                         <div class="form-group clearfix">
                             <div class="pull-left">
