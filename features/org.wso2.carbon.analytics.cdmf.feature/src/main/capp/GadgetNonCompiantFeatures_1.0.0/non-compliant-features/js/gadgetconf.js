@@ -16,10 +16,19 @@
  * under the License.
  */
 
+var extractedPort = window.location.port;
+var evaluatedPort;
+if (extractedPort) {
+    evaluatedPort = ":" + extractedPort;
+} else {
+    evaluatedPort = "";
+}
+
 var gadgetConfig = {
     "id": "non-compliant-features",
     "polling_interval": 30000,
     "pub_sub_channel": "filter",
-    "source": "https://localhost:9443/api/device-mgt/v1.0/dashboard/non-compliant-device-counts-by-features",
+    "source": "https://" + window.location.hostname + evaluatedPort +
+        "/api/device-mgt/v1.0/dashboard/non-compliant-device-counts-by-features",
     "domain": "carbon.super"
 };

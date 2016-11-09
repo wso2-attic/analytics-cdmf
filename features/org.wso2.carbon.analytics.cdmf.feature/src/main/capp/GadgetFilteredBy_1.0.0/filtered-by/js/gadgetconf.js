@@ -16,11 +16,21 @@
  * under the License.
  */
 
+var extractedPort = window.location.port;
+var evaluatedPort;
+if (extractedPort) {
+    evaluatedPort = ":" + extractedPort;
+} else {
+    evaluatedPort = "";
+}
+
 var gadgetConfig = {
     "id": "breadcrumbs",
     "polling_interval": 30000,
     "pub_sub_channel": "filter",
-    "featureSource": "https://localhost:9443/api/device-mgt/v1.0/dashboard/feature-non-compliant-device-count-over-total",
-    "defaultSource": "https://localhost:9443/api/device-mgt/v1.0/dashboard/filtered-device-count-over-total",
+    "featureSource": "https://" + window.location.hostname + evaluatedPort +
+        "/api/device-mgt/v1.0/dashboard/feature-non-compliant-device-count-over-total",
+    "defaultSource": "https://" + window.location.hostname + evaluatedPort +
+        "/api/device-mgt/v1.0/dashboard/filtered-device-count-over-total",
     "domain": "carbon.super"
 };
