@@ -16,10 +16,19 @@
  * under the License.
  */
 
+var extractedPort = window.location.port;
+var evaluatedPort;
+if (extractedPort) {
+    evaluatedPort = ":" + extractedPort;
+} else {
+    evaluatedPort = "";
+}
+
 var gadgetConfig = {
     "id": "device-overview",
     "polling_interval": 30000,
     "pub_sub_channel": "filter",
-    "source": "https://localhost:9443/api/device-mgt/v1.0/dashboard/device-count-overview",
+    "source": "https://" + window.location.hostname + evaluatedPort +
+        "/api/device-mgt/v1.0/dashboard/device-count-overview",
     "domain": "carbon.super"
 };
