@@ -29,7 +29,7 @@
     <groupId>org.wso2.carbon.analytics.cdmf</groupId>
     <artifactId>wso2analytics-cdmf-parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.2-SNAPSHOT</version>
+    <version>1.0.2</version>
 
     <licenses>
         <license>
@@ -47,7 +47,7 @@
         <url>https://github.com/wso2/analytics-cdmf.git</url>
         <developerConnection>scm:git:https://github.com/wso2/analytics-cdmf.git</developerConnection>
         <connection>scm:git:https://github.com/wso2/analytics-cdmf.git</connection>
-        <tag>HEAD</tag>
+        <tag>v1.0.2</tag>
     </scm>
 
     <properties>
