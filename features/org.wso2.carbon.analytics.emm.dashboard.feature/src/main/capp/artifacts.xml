@@ -19,9 +19,9 @@
 <artifacts>
     <artifact name="org.wso2.carbon.analytics.emm.dashboard" version="1.0.0" type="carbon/application">
         <!-- Gadgets -->
-        <dependency artifact="GadgetOverview" version="1.0.0" include="true" serverRole="EMMPlatform"/>
-        <dependency artifact="GadgetDevicesTable" version="1.0.0" include="true" serverRole="EMMPlatform"/>
+        <dependency artifact="GadgetOverview" version="1.0.0" include="true" serverRole="EMMAnalytics"/>
+        <dependency artifact="GadgetDevicesTable" version="1.0.0" include="true" serverRole="EMMAnalytics"/>
         <!-- Dashboard Definition -->
-        <dependency artifact="Dashboard" version="1.0.0" include="true" serverRole="EMMPlatform"/>
+        <dependency artifact="Dashboard" version="1.0.0" include="true" serverRole="EMMAnalytics"/>
     </artifact>
 </artifacts>

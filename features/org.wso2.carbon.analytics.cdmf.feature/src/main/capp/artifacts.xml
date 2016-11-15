@@ -19,10 +19,10 @@
 <artifacts>
     <artifact name="org.wso2.carbon.analytics.cdmf" version="1.0.0" type="carbon/application">
         <!-- Gadgets -->
-        <dependency artifact="GadgetDeviceGrouping" version="1.0.0" include="true" serverRole="CDMFPlatform"/>
-        <dependency artifact="GadgetFilteredBy" version="1.0.0" include="true" serverRole="CDMFPlatform"/>
-        <dependency artifact="GadgetNonCompiantFeatures" version="1.0.0" include="true" serverRole="CDMFPlatform"/>
-        <dependency artifact="GadgetUnsecuredDevices" version="1.0.0" include="true" serverRole="CDMFPlatform"/>
-        <dependency artifact="GadgetCommons" version="1.0.0" include="true" serverRole="CDMFPlatform"/>
+        <dependency artifact="GadgetDeviceGrouping" version="1.0.0" include="true" serverRole="CDMFAnalytics"/>
+        <dependency artifact="GadgetFilteredBy" version="1.0.0" include="true" serverRole="CDMFAnalytics"/>
+        <dependency artifact="GadgetNonCompiantFeatures" version="1.0.0" include="true" serverRole="CDMFAnalytics"/>
+        <dependency artifact="GadgetUnsecuredDevices" version="1.0.0" include="true" serverRole="CDMFAnalytics"/>
+        <dependency artifact="GadgetCommons" version="1.0.0" include="true" serverRole="CDMFAnalytics"/>
     </artifact>
 </artifacts>
