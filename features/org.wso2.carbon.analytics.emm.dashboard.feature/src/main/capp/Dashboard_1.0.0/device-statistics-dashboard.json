@@ -1,6 +1,6 @@
 {
-    "id": "emm-analytics-dashboard",
-    "title": "EMM Analytics Dashboard",
+    "id": "device-statistics-dashboard",
+    "title": "Device Statistics Dashboard",
     "description": "",
     "permissions": {
         "viewers": ["admin"],
