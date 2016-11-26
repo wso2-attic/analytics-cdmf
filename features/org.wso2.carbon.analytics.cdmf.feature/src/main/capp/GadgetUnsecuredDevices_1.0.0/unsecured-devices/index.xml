@@ -18,11 +18,11 @@
   -->
 
 <Module>
-    <ModulePrefs title="Un-secured Devices"
+    <ModulePrefs title="Unsecured Devices"
                  author="WSO2 Gadget Server"
                  scrolling="false"
                  tags="stack,chart,data,visualization"
-                 description="EMM Un-secured Devices">
+                 description="EMM Unsecured Devices">
         <Require feature="pubsub-2"/>
         <Require feature="dynamic-height" />
         <Require feature="dynamic-width" />

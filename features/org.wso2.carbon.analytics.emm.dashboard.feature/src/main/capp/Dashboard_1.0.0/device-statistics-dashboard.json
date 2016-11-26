@@ -80,14 +80,14 @@
                     }
                 }],
                 "ab37f5c74cbc3c1eb81093d62d9c2437": [{
-                    "id": "un-secured-devices-0",
+                    "id": "unsecured-devices-0",
                     "content": {
-                        "id": "un-secured-devices",
-                        "title": "Un-secured Devices",
+                        "id": "unsecured-devices",
+                        "title": "Unsecured Devices",
                         "type": "gadget",
-                        "thumbnail": "fs://gadget/un-secured-devices/img/thumbnail.png",
+                        "thumbnail": "fs://gadget/unsecured-devices/img/thumbnail.png",
                         "data": {
-                            "url": "fs://gadget/un-secured-devices/index.xml"
+                            "url": "fs://gadget/unsecured-devices/index.xml"
                         },
                         "notify": {
                             "publisher": {
@@ -102,7 +102,7 @@
                             }
                         },
                         "styles": {
-                            "title": "Un-secured Devices",
+                            "title": "Unsecured Devices",
                             "borders": true
                         },
                         "options": {},
