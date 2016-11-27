@@ -202,9 +202,9 @@ dg.fetch = function (cb) {
                                     [
                                         context,
                                         data[j]["group"],
-                                            data[j]["displayNameForGroup"] + " Count: " +
-                                            data[j]["deviceCount"],
-                                            (data[j]["deviceCount"] / dg.sum) * 100
+                                        data[j]["displayNameForGroup"] + " Count : " +
+                                        data[j]["deviceCount"],
+                                        (data[j]["deviceCount"] / dg.sum) * 100
                                     ]
                                 );
                             }
