@@ -18,12 +18,12 @@
 
 body.dark svg.marks .mark-group .background {
     /*noinspection CssUnknownProperty*/
-    fill: #121822 !important;
+    fill: #1e2531 !important;
 }
 
 body.dark svg.marks .mark-group .mark-text text {
     /*noinspection CssUnknownProperty*/
-    fill: #7D8596 !important;
+    fill: #E3E5E6 !important;
 }
 
 body.dark svg.marks .mark-group .mark-rule line {

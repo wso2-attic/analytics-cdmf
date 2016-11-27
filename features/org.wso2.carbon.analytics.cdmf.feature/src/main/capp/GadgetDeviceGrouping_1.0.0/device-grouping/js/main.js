@@ -60,7 +60,7 @@ dg.config = {
     ],
     width: $(body).width(),
     height: $(body).height(),
-    padding: {"top": 25, "left": 25, "bottom": 25, "right": 25}
+    padding: {"top": 25, "left": 25, "bottom": 30, "right": 15}
 };
 
 dg.initialize = function () {

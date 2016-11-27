@@ -181,14 +181,14 @@
                     "blocks": [{
                         "id": "758d1bffefffbf99937aeff387cfd126",
                         "x": 0,
-                        "y": 6,
+                        "y": 7,
                         "width": 12,
                         "height": 8,
                         "banner": false
                     }, {
                         "id": "3cd2556977ef1bc25e881547aa3f59e2",
                         "x": 0,
-                        "y": 2,
+                        "y": 3,
                         "width": 12,
                         "height": 4,
                         "banner": false
@@ -197,7 +197,7 @@
                         "x": 0,
                         "y": 0,
                         "width": 12,
-                        "height": 2,
+                        "height": 3,
                         "banner": false
                     }]
                 }
@@ -234,14 +234,14 @@
                             }
                         },
                         "styles": {
-                            "no_heading": true,
+                            "no_heading": false,
                             "hide_gadget": false,
                             "titlePosition": "left",
-                            "title": "Devices are Filtered by"
+                            "title": "Device Counting"
                         },
                         "options": {},
                         "locale_titles": {
-                            "en-US": "Devices are Filtered by"
+                            "en-US": "Device Counting"
                         },
                         "settings": {
                             "priority": "5"
