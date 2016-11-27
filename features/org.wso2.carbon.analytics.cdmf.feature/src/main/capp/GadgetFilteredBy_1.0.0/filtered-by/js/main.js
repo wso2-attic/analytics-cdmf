@@ -101,7 +101,8 @@ fb.fetch = function (cb) {
                 var results = response[0].data;
                 var data = {};
                 for (var i = 0; i < results.length; i++) {
-                    if (results[i]["group"] == "filtered") {
+                    if (results[i]["group"] == "filtered" ||
+                        results[i]["group"] == "feature-non-compliant-and-filtered") {
                         data["filtered"] = results[i]["deviceCount"];
                     } else if (results[i]["group"] == "total") {
                         data["total"] = results[i]["deviceCount"];
