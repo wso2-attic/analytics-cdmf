@@ -67,7 +67,7 @@
                             <span id="filterMsg" class="add-padding-left-2x">
                                 Click on any available device group <br>to filter more on devices.
                             </span>
-                            <div id="breadcrumbs"></div>
+                            <div id="breadcrumbs" class="add-padding-left-2x"></div>
                         </div>
                         <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
                             <div id="devices"></div>
