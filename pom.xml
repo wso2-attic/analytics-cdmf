@@ -29,7 +29,7 @@
     <groupId>org.wso2.carbon.analytics.cdmf</groupId>
     <artifactId>wso2analytics-cdmf-parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.2-SNAPSHOT</version>
+    <version>1.0.4-SNAPSHOT</version>
 
     <licenses>
         <license>
